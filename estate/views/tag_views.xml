@@ -1,0 +1,53 @@
+<odoo>
+    <record id="prope_model_action" model="ir.actions.act_window">
+        <field name="name">Property Tag</field>
+        <field name="res_model">tag.model</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+    <record id="tag_model_tree" model="ir.ui.view">
+        <field name="name">tag.model.tree</field>
+        <field name="model">tag.model</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Tag" editable="bottom">
+                <field name="name"/>
+            </tree>
+
+        </field>
+    </record>
+    <record id="tag_model_form" model="ir.ui.view">
+        <field name="name">tag.model.form</field>
+        <field name="model">tag.model</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+
+                        <group>
+                            <field name="name"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Description">
+
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tag_model_search" model="ir.ui.view">
+        <field name="name">tag.model.search</field>
+        <field name="model">tag.model</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <search>
+            </search>
+        </field>
+    </record>
+</odoo>

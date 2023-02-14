@@ -1,0 +1,70 @@
+<odoo>
+    <record id="property_model_action" model="ir.actions.act_window">
+        <field name="name">Property Type</field>
+        <field name="res_model">property.model</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+    <record id="property_model_tree" model="ir.ui.view">
+        <field name="name">property.model.tree</field>
+        <field name="model">property.model</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="property_model_form" model="ir.ui.view">
+        <field name="name">property.model.form</field>
+        <field name="model">property.model</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!--                    <div class="oe_button_box" name="button_box">-->
+                    <!--                        &lt;!&ndash; Invoice stat button &ndash;&gt;-->
+                    <!--                        <button name="button_open_offer" type="object"-->
+                    <!--                                class="oe_stat_button" icon="fa-bars"-->
+                    <!--                                attrs="{'invisible': [('offer_count','=', 0)]}">-->
+                    <!--                            <field name="offer_count"/>-->
+                    <!--                        </button>-->
+                    <!--                    </div>-->
+                    <div class="oe_button_box" name="button_box">
+                        <!-- This is another solution using a method call -->
+                        <button name="action_view_offers" type="object" class="oe_stat_button" icon="fa-money">
+                            <field name="offer_count" widget="statinfo" string="Offers"/>
+                        </button>
+                    </div>
+
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Properties">
+                            <field name="property_ids" readonly="1">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="expected_price"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="property_model_search" model="ir.ui.view">
+        <field name="name">property.model.search</field>
+        <field name="model">property.model</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <search>
+            </search>
+        </field>
+    </record>
+</odoo>
